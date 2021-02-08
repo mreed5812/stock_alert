@@ -1,15 +1,14 @@
 from bs4 import BeautifulSoup
-from selenium import webdriver
 import requests
 from time import time, sleep
 from twilio.rest import Client
+import config
 
 
 # Your Account Sid and Auth Token from twilio.com/console
 # and set the environment variables. See http://twil.io/secure
-account_sid = 'ACeed1ff514f0d12ffec41f02d77eb99bf'
-auth_token = 'daffe7a17fa93585d4fb6052405e5a00'
-client = Client(account_sid, auth_token)
+
+client = Client(config.TWILIO_ACCOUNT_SID, config.TWILIO_AUTH_TOKEN)
 
 main_url = 'https://finance.yahoo.com/quote/GME/'
 response = requests.get(main_url)
